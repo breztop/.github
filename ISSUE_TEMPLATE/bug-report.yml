@@ -1,0 +1,92 @@
+name: Bug Report
+about: Report a crash, incorrect behavior, or compilation error
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! To help us diagnose it quickly, please fill out the details below.
+        
+        🔍 **Before submitting**, please:
+        - Check if the issue exists in the latest version (`main` branch)
+        - Search existing issues
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Provide a minimal, complete, and reproducible example (MCVE).
+        Include code snippet, CMake/Makefile commands, and expected vs actual output.
+      placeholder: |
+        ```cpp
+        #include <yourlib.hpp>
+        int main() {
+            // minimal code that triggers the bug
+        }
+        ```
+        Build command: g++ -std=c++17 ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Library version
+      description: Git commit hash or tag (e.g., v1.2.0 or abc1234)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: compiler
+    attributes:
+      label: Compiler
+      options:
+        - GCC
+        - Clang
+        - MSVC
+        - Apple Clang
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: compiler-version
+    attributes:
+      label: Compiler version
+      description: e.g., g++ 11.4.0, clang 16.0.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Linux
+        - Windows
+        - macOS
+        - FreeBSD
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: |
+        - CMake version? Conan/vcpkg?
+        - Linker errors? Valgrind/ASan output?
+        - Does it work with older versions?
+    validations:
+      required: false

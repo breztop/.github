@@ -1,0 +1,63 @@
+name: Feature Request
+about: Suggest a new utility, API improvement, or standard compliance
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your suggestion! Since this is a foundational C++ library, 
+        we prioritize features that are:
+        - Widely applicable
+        - Compatible with modern C++ standards (C++17+)
+        - Minimal overhead
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: |
+        Describe the use case or limitation you're facing.
+        Why can't it be solved outside the library?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: |
+        - Suggested API (function/class signature)
+        - Header file location
+        - Example usage
+      placeholder: |
+        ```cpp
+        namespace mylib {
+        template<typename T>
+        void safe_delete(T*& ptr); // in <mylib/memory.hpp>
+        }
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: |
+        Are there workarounds? Does std:: or boost:: already provide this?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: standards
+    attributes:
+      label: C++ Standard Alignment
+      description: |
+        Is this aligned with current/future C++ standards (e.g., C++20/23)?
+      options:
+        - label: Yes, it follows standard idioms
+        - label: It fills a gap not yet in the standard
+        - label: Not sure
+    validations:
+      required: false
